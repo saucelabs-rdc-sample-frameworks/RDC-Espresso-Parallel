@@ -1,0 +1,46 @@
+---
+# Test framework: "xcuitest" or "espresso"
+testFramework: espresso
+ 
+# Path to the app's .ipa or .app.
+app: ./app-debug.apk
+ 
+# Path to the test runner app's .ipa or .app.
+test: ./app-debug-test.apk
+ 
+# Path where XML test reports will be saved.
+xmlFolder: ./
+
+# Define a list of devices on which the tests should be executed.
+devices:
+ 
+# Device 1
+- datacenter: US
+  # Specify a device descriptor for static allocation f.ex. iPhone_8_real_us.
+  deviceNameQuery: Samsung.*
+  platformVersion: 7
+  envs:
+  - key: class
+    #Specify an indidual test method (Optional)
+    value: com.example.android.testing.espresso.BasicSample.ChangeTextBehaviorTest#changeText_sameActivity
+
+  # Optional parameters, set to true to enable.
+  # phoneOnly: false
+  # tabletOnly: false
+  # privateDevicesOnly: false
+ 
+# Device 2
+- datacenter: US
+  # Specify a device descriptor for static allocation f.ex. iPhone_8_real_us.
+  deviceNameQuery: Google.*
+  platformVersion: 7
+  envs:
+  - key: class
+    #Specify an indidual test method (Optional)
+    value: com.example.android.testing.espresso.BasicSample.ChangeTextBehaviorTest#changeText_newActivity
+
+  # Optional parameters, set to true to enable.
+  # phoneOnly: false
+  # tabletOnly: false
+  # privateDevicesOnly: false
+
